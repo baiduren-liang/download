@@ -7,6 +7,6 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.129.188:3306/hbgm?characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Shanghai
-    username: hbgm
-    password: easipass
+    url: jdbc:mysql://192.168.81.1:3306/docker?characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
