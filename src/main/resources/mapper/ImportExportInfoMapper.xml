@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xsg.mapper.ImportExportInfoMapper">
+
+
+    <select id="searchListPage" resultType="com.xsg.entity.dto.IESearchDTO">
+        select
+            c.company_name as orgName,
+            c.region,
+            i.seq_no,
+            i.trade_mode,
+            i.d_date as dDate,
+            i.import_export_date,
+            IF(i.i_e_flag = 1, '进口', '出口') as iEFlag,
+            i.transport_mode,
+            i.customs_name,
+            i.trade_area_name,
+            i.district_name,
+            i.code_ts as codeTs,
+            i.g_name as gName,
+            i.g_qty as gQty,
+            i.g_unit_name as gUnitName,
+            i.trade_curr_name,
+            i.decl_total,
+            i.origin_country_name,
+            i.destination_country_name,
+            i.arrival_departure_area_name,
+            i.port_customs,
+            i.port_customs_name,
+            i.ecommerce_org_code,
+            i.ecommerce_org_name,
+            i.gross_weight,
+            i.packages_number,
+            i.data_source,
+            IF(i.dec_level = 1, '一线', '二线') as decLevel
+        from import_export_info_temp i
+        join company_info c on i.org_code = c.credit_code
+    </select>
+</mapper>
